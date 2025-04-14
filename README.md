@@ -119,24 +119,42 @@ To run the processor in a Jupyter Notebook:
    !pip install pandas tqdm
    ```
 
-2. Import and run the processor:
+2. Open the notebook `workflow.ipynb` and run the processor :
+   - Open Jupyter Notebook or JupyterLab
+   - Open the file workflow.ipynb
+   - If needed, modify the data folder path in the code:
+      ```python
+      data_folder = "path/to/your/UPAS DATA"  # Update this path to your actual data folder
+      ```
+3. Run the Code
+* You can either:
+   - Run the entire notebook by clicking "Run All" from the "Cell" menu
+   - Run individual cells by selecting them and pressing Shift+Enter
+
+* To execute just the main processing function, add and run this cell:
    ```python
-   from upas_processor import process_upas_files
    
-   data_folder = "UPAS DATA"  # Update this path to your actual data folder
-   output_dir = "processed_data"
-   
-   print(f"Starting processing of UPAS data from {data_folder}")
-   properties_df, data_df = process_upas_files(data_folder, output_dir)
-   print(f"Processing complete. Results saved to {output_dir}")
-   
-   # Open the output folder automatically
-   open_output_folder(output_dir)
-   
-   # View the results
+    data_folder = "UPAS DATA"  # Update this path to your actual data folder
+    output_dir = "processed_data"
+    
+    print(f"Starting processing of UPAS data from {data_folder}")
+    properties_df, data_df = process_upas_files(data_folder, output_dir)
+    print(f"Processing complete. Results saved to {output_dir}")
+    
+    # Open the output folder automatically
+    open_output_folder(output_dir)
+   ```
+
+4. View the Results
+* The script will create a folder named "processed_data" (or the output directory you specified)
+
+* You can also examine the data directly in Jupyter by adding:
+   ```python
+   # Display property data
    print("Sample of properties data:")
    properties_df.head()
    
+   # Display sample data
    print("Sample of time-series data:")
    data_df.head()
    ```
